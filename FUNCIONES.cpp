@@ -247,7 +247,7 @@ en la parte de key en la cual estÃ¡n los nombres de los Reuters conectados, y 
             temp_txt.close();
             Guardar.close();
             remove("../Practica4/rutas/rutas.txt");
-            rename("../Practica4/rutas/temporal.txt","C:/Users/maria/OneDrive/Documentos/INFO2-REPOSITORIO/Practica4-qt/Practica4/rutas/rutas.txt");
+            rename("../Practica4/rutas/temporal.txt","../Practica4/rutas/rutas.txt");
             cout<<"EL ROUTER "<<router<<" fue eliminado"<<endl;
 
             //Actualizamos los archivos para guardar la informacion que no se borro
@@ -640,7 +640,7 @@ bool Menu()//Este menu es para cuando las rutas deben ser ingresadas manualmente
     cout<<"*   1.AGREGAR ROUTER                       *"<<endl;
     cout<<"*   2.BORRAR ROUTER                        *"<<endl;
     cout<<"*   3.COSTO ENVIO <R1-R2>                  *"<<endl;
-    cout<<"*   4.RUTA ENVIO <Ri-R2>                   *"<<endl;
+    cout<<"*   4.RUTA ENVIO <R1-R2>                   *"<<endl;
     cout<<"*   5.SALIR                                *"<<endl;
     cout<<"*                                          *"<<endl;
     cout<<"********************************************"<<endl;
@@ -702,7 +702,7 @@ bool Menu2() //Este menu es para cuando las rutas se extraen de un txt
     cout<<"*   1.AGREGAR ROUTER                       *"<<endl;
     cout<<"*   2.BORRAR ROUTER                        *"<<endl;
     cout<<"*   3.COSTO ENVIO <R1-R2>                  *"<<endl;
-    cout<<"*   4.RUTA ENVIO <Ri-R2>                   *"<<endl;
+    cout<<"*   4.RUTA ENVIO <R1-R2>                   *"<<endl;
     cout<<"*   5.SALIR                                *"<<endl;
     cout<<"*                                          *"<<endl;
     cout<<"********************************************"<<endl;
@@ -797,3 +797,4 @@ bool Menu_()//Este es el menu principal, con el cual se escoge con cual de los d
         return x;
     }
 }
+
