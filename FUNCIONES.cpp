@@ -1,11 +1,11 @@
-#include<iostream>
-#include<string>
-#include<vector>
-#include<map>
-#include<limits>
+#include <iostream>
+#include <string>
+#include <vector>
+#include <map>
+#include <limits>
 #include <fstream>
-#include<conio.h>
-#include<stdlib.h>
+#include <conio.h>
+#include <stdlib.h>
 #include "routers.h"
 
 using namespace std;
@@ -20,8 +20,7 @@ string leer(string nombre_archivo){
     string texto;
     // Abre el archivo en modo lectura
     ifstream infile;
-    string direccion="C:/Users/maria/OneDrive/Documentos/INFO2-REPOSITORIO/Practica4-qt/Practica4/rutas/rutas.txt";
-    //direccion+=nombre_archivo;
+    string direccion="../Practica4/rutas/rutas.txt";
     // Se pone de manera explicita la ruta relativa donde se encuentra el archivo
     infile.open(direccion);
 
@@ -52,7 +51,7 @@ archivo donde se tienen guardadas las rutas*/
 
     string router;
     ofstream Guardar;
-    Guardar.open("C:/Users/maria/OneDrive/Documentos/INFO2-REPOSITORIO/Practica4-qt/Practica4/rutas/rutas.txt",ios::app);
+    Guardar.open("../Practica4/rutas/rutas.txt",ios::app);
     while (router!="-1") {
 
         cout<<"PORFAVOR INGRESELO DE LA FORMA "
@@ -88,7 +87,7 @@ archivo donde se tienen guardadas las rutas*/
 
     string router,k;
     ofstream Guardar;
-    k="C:/Users/maria/OneDrive/Documentos/INFO2-REPOSITORIO/Practica4-qt/Practica4/rutas/rutas.txt";
+    k="../Practica4/rutas/rutas.txt";
     k+=doc;
     Guardar.open(k,ios::app);
     while (router!="-1") {
@@ -120,9 +119,9 @@ archivo donde se tienen guardadas las rutas*/
 
 }
 
-void BorrarRouter(){
+void BorrarRouter(){ //este es para el archivo de rutas predeterminado
 
-    /*esta funciÃ³n tiene el propÃ³sito de eliminar el Ruter elegido por el usuario,
+    /*esta funcion tiene el proposito de eliminar el Ruter elegido por el usuario,
 se hace siguiendo estos pasos:
 
 1) extraer los enlaces y ubicarlos en un mapa (estos para poder manippular los ruters con mayor facilidad)
@@ -140,8 +139,8 @@ en la parte de key en la cual estÃ¡n los nombres de los Reuters conectados, y 
     ofstream Guardar;
     ofstream temp_txt;
 
-    Guardar.open("C:/Users/maria/OneDrive/Documentos/INFO2-REPOSITORIO/Practica4-qt/Practica4/rutas/rutas.txt",ios::app);
-    temp_txt.open("C:/Users/maria/OneDrive/Documentos/INFO2-REPOSITORIO/Practica4-qt/Practica4/rutas/temporal.txt",ios::app);
+    Guardar.open("../Practica4/rutas/rutas.txt",ios::app);
+    temp_txt.open("../Practica4/rutas/temporal.txt",ios::app);
 
     map<string,short> enlaces;
     map<string,short>::iterator it;
@@ -247,8 +246,8 @@ en la parte de key en la cual estÃ¡n los nombres de los Reuters conectados, y 
             ru=router;
             temp_txt.close();
             Guardar.close();
-            remove("C:/Users/maria/OneDrive/Documentos/INFO2-REPOSITORIO/Practica4-qt/Practica4/rutas/rutas.txt");
-            rename("C:/Users/maria/OneDrive/Documentos/INFO2-REPOSITORIO/Practica4-qt/Practica4/rutas/temporal.txt","C:/Users/maria/OneDrive/Documentos/INFO2-REPOSITORIO/Practica4-qt/Practica4/rutas/rutas.txt");
+            remove("../Practica4/rutas/rutas.txt");
+            rename("../Practica4/rutas/temporal.txt","../Practica4/rutas/rutas.txt");
             cout<<"EL ROUTER "<<router<<" fue eliminado"<<endl;
 
             //Actualizamos los archivos para guardar la informacion que no se borro
@@ -259,18 +258,18 @@ en la parte de key en la cual estÃ¡n los nombres de los Reuters conectados, y 
     }
 }
 
-void BorrarRouter2(string doc){
+void BorrarRouter2(string doc){ //este es para erl archivo de rutas del usuario
 
-    /*esta funciÃ³n tiene el propÃ³sito de eliminar el Ruter elegido por el usuario,
+    /*esta funcion tiene el proposito de eliminar el Ruter elegido por el usuario,
 se hace siguiendo estos pasos:
 
 1) extraer los enlaces y ubicarlos en un mapa (estos para poder manippular los ruters con mayor facilidad)
 
-2) buscar con ayuda de un iterador si el Reuter que dio el usuario estÃ¡ en el mapa (por que no puedes eliminar algo que no existe)
-en la parte de key en la cual estÃ¡n los nombres de los Reuters conectados, y si se encuentra el Reuter se elimina dicho componente del mapa
+2) buscar con ayuda de un iterador si el Reuter que dio el usuario esta en el mapa (por que no puedes eliminar algo que no existe)
+en la parte de key en la cual estan los nombres de los Reuters conectados, y si se encuentra el Reuter se elimina dicho componente del mapa
 
-3)se agrega a un archivo temporal la informaciÃ³n editada para poder hacer la actualizacion y se renombra despues este archivo y se elimina el anterior
- (Cosa que me hubiera gustado aprender o saber donde buscar para el lab 3 :Â´D )*/
+3)se agrega a un archivo temporal la informacion editada para poder hacer la actualizacion y se renombra despues este archivo y se elimina el anterior
+ (Cosa que me hubiera gustado aprender o saber donde buscar para el lab 3 :D )*/
 
 
     int x=0,pos,posinicio=0,posaux1=0,posaux2;
@@ -279,10 +278,10 @@ en la parte de key en la cual estÃ¡n los nombres de los Reuters conectados, y 
     ofstream Guardar;
     ofstream temp_txt;
 
-    k="C:/Users/maria/OneDrive/Documentos/INFO2-REPOSITORIO/Practica4-qt/Practica4/rutas/rutas.txt";
+    k="../Practica4/rutas/";
     k+=doc;
     Guardar.open(k,ios::app);
-    temp_txt.open("C:/Users/maria/OneDrive/Documentos/INFO2-REPOSITORIO/Practica4-qt/Practica4/rutas/temporal.txt",ios::app);
+    temp_txt.open("../Practica4/rutas/temporal.txt",ios::app);
 
     map<string,short> enlaces;
     map<string,short>::iterator it;
@@ -380,8 +379,8 @@ en la parte de key en la cual estÃ¡n los nombres de los Reuters conectados, y 
             ru=router;
             temp_txt.close();
             Guardar.close();
-            remove("C:/Users/maria/OneDrive/Documentos/INFO2-REPOSITORIO/Practica4-qt/Practica4/rutas/topologia.txt");
-            rename("C:/Users/maria/OneDrive/Documentos/INFO2-REPOSITORIO/Practica4-qt/Practica4/rutas/temporal.txt","C:/Users/maria/OneDrive/Documentos/INFO2-REPOSITORIO/Practica4-qt/Practica4/rutas/topologia.txt");
+            remove("../Practica4/rutas/topologia.txt");
+            rename("../Practica4/rutas/temporal.txt","../Practica4/rutas/topologia.txt");
             cout<<"EL ROUTER "<<router<<" fue eliminado"<<endl;
 
             _sleep(3500);
@@ -641,7 +640,7 @@ bool Menu()//Este menu es para cuando las rutas deben ser ingresadas manualmente
     cout<<"*   1.AGREGAR ROUTER                       *"<<endl;
     cout<<"*   2.BORRAR ROUTER                        *"<<endl;
     cout<<"*   3.COSTO ENVIO <R1-R2>                  *"<<endl;
-    cout<<"*   4.RUTA ENVIO <Ri-R2>                   *"<<endl;
+    cout<<"*   4.RUTA ENVIO <R1-R2>                   *"<<endl;
     cout<<"*   5.SALIR                                *"<<endl;
     cout<<"*                                          *"<<endl;
     cout<<"********************************************"<<endl;
@@ -703,7 +702,7 @@ bool Menu2() //Este menu es para cuando las rutas se extraen de un txt
     cout<<"*   1.AGREGAR ROUTER                       *"<<endl;
     cout<<"*   2.BORRAR ROUTER                        *"<<endl;
     cout<<"*   3.COSTO ENVIO <R1-R2>                  *"<<endl;
-    cout<<"*   4.RUTA ENVIO <Ri-R2>                   *"<<endl;
+    cout<<"*   4.RUTA ENVIO <R1-R2>                   *"<<endl;
     cout<<"*   5.SALIR                                *"<<endl;
     cout<<"*                                          *"<<endl;
     cout<<"********************************************"<<endl;
@@ -757,6 +756,7 @@ bool Menu_()//Este es el menu principal, con el cual se escoge con cual de los d
 {
     int opcion;
     bool x;
+    system("cls");
     cout<<"********************************************"<<endl;
     cout<<"*             QUE QUIERE HECER             *"<<endl;
     cout<<"********************************************"<<endl;
@@ -781,15 +781,20 @@ bool Menu_()//Este es el menu principal, con el cual se escoge con cual de los d
         return x;
 
     case 3:
+        system("cls");
         cout<<"********************************************"<<endl;
         cout<<"*           QUE TENGA BUEN DIA             *"<<endl;
         cout<<"********************************************"<<endl;
         return false;
 
     default:
+        system("cls");
         cout<<"********************************************"<<endl;
-        cout<<"*             !NO ESCOGIO NADAÂ¡            *"<<endl;
-                cout<<"********************************************"<<endl;
-        break;
+        cout<<"*              NO ESCOGIO NADA             *"<<endl;
+        cout<<"********************************************"<<endl;
+        _sleep(5000);
+        x = true;
+        return x;
     }
 }
+
